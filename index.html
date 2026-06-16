@@ -1,0 +1,181 @@
+<div class="grid-row" style="display: flex; flex-wrap: wrap; align-items: flex-start; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; max-width: 1200px; margin: 0 auto; padding: 20px;">
+    
+    <div class="col-xs-12 col-md-3" style="padding-right: 15px; min-width: 260px; box-sizing: border-box;">
+        <div class="list-group" style="border: 1px solid #007ba6; border-radius: 4px; overflow: hidden; position: sticky; top: 10px; background: white; z-index: 10; box-shadow: 0 4px 6px rgba(0,0,0,0.05);">
+            <div style="background-color: #007ba6; color: white; padding: 12px; text-align: center; font-weight: bold;">Workshop Guide</div>
+            <a class="list-group-item" style="color: #007ba6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none;" href="#briefing">🎬 1. Core Video Briefing</a> 
+            <a class="list-group-item" style="color: #007ba6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none;" href="#mono-section">🔤 2. Substitution Task</a> 
+            <a class="list-group-item" style="color: #007ba6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none;" href="#vernam-section">⚡ 3. The Vernam Cipher</a> 
+            <a class="list-group-item" style="color: #007ba6; display: block; padding: 12px; border-bottom: 1px solid #eee; text-decoration: none;" href="#exam-prep">🏅 4. Year 12 Prep Tracker</a> 
+            <a class="list-group-item" style="color: #007ba6; display: block; padding: 12px; text-decoration: none;" href="#next-steps">📚 5. Deep-Dive Links</a>
+        </div>
+    </div>
+
+    <div class="col-xs-12 col-md-9" style="border-left: 2px solid #007BA6; padding-left: 30px; flex: 1; box-sizing: border-box; min-width: 300px;">
+        
+        <h1 style="color: #007ba6; margin-top: 0; border-bottom: 2px solid #007ba6; padding-bottom: 10px;">🔐 Year 12 Transition Workshop: Advanced Cryptography</h1>
+        
+        <div style="background-color: #f4f9fb; padding: 20px; border-radius: 8px; border-left: 5px solid #007ba6; margin-bottom: 30px;">
+            <strong>🎯 Your Goal (60 Minutes):</strong> This workshop explores how computer science evolved encryption from simple letter-swapping to uncrackable mathematical formulas. There is <strong>nothing to hand in</strong>—work through the coding challenges on your screen to prepare for our first live programming lab.
+        </div>
+
+        <div id="briefing" style="margin-bottom: 40px; padding-top: 10px;">
+            <h2 style="color: #007ba6; margin-top: 0;">🎬 1. Interactive Video Briefing (10 Mins)</h2>
+            <p>Watch this video introduction to understand how mathematical keys secure information transmitted across network cables.</p>
+            <div style="width: 100%; aspect-ratio: 16/9; background-color: #eef2f5; border: 2px dashed #007ba6; border-radius: 8px; display: flex; align-items: center; justify-content: center; color: #007ba6; font-weight: bold; text-align: center; padding: 20px; box-sizing: border-box;">
+                [ PLACEHOLDER: INSERT CRYPTOGRAPHY VIDEO EMBED HERE ]
+            </div>
+        </div>
+
+        <div id="mono-section" style="margin-bottom: 40px;">
+            <h2 style="color: #007ba6;">🔤 2. Monoalphabetic Substitution (15 Mins)</h2>
+            <p>A <strong>monoalphabetic cipher</strong> works by mapping every single letter of the regular alphabet to a completely different, jumbled-up letter. Unlike a simple Caesar shift that moves everything forward by three slots, this mix-up is completely randomized.</p>
+            
+            <div style="background: #f8fafc; border: 1px solid #cbd5e1; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="margin-top:0; color:#007ba6;">🎮 Real-Time Substitution Laboratory</h4>
+                <p style="font-size: 0.88em; color:#555;">Type a message into the box to see it instantly convert using a scrambled alphabet key.</p>
+                
+                <div style="font-family: monospace; font-size: 0.9em; margin-bottom: 10px; background: #fff; padding: 10px; border: 1px solid #ddd; border-radius: 4px;">
+                    <strong>Normal Alphabet:</strong> ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+                    <strong>Cipher Shift Key:</strong> QWERTYUIOPASDFGHJKLZXCVBNM
+                </div>
+
+                <label style="font-weight: bold; font-size:0.9em;" for="mono-input">Your Plaintext Input:</label>
+                <input id="mono-input" type="text" placeholder="Type a message here..." oninput="runSubstitution()" style="width:100%; padding: 10px; margin: 5px 0 15px 0; border: 1px solid #ccc; border-radius: 4px; font-family:inherit; box-sizing: border-box;" />
+
+                <label style="font-weight: bold; font-size:0.9em;">Encrypted Ciphertext Result:</label>
+                <div id="mono-output" style="width:100%; min-height:40px; padding: 10px; margin-top: 5px; background: #fff; border: 1px solid #ccc; border-radius: 4px; font-family:monospace; color:#c62828; font-weight:bold; box-sizing: border-box;"></div>
+            </div>
+
+            <div style="background-color: #fff8e1; padding: 15px; border-radius: 6px; border-left: 5px solid #ffb300; font-size: 0.9em;">
+                <strong>⚠️ Why it fails:</strong> Even though there are billions of ways to scramble the alphabet, these ciphers are easy to crack using <strong>Frequency Analysis</strong>. In the English language, letters like <strong>E</strong>, <strong>T</strong>, and <strong>A</strong> show up more often than others. Hackers count letter occurrences to instantly reverse the code!
+            </div>
+        </div>
+
+        <div id="vernam-section" style="margin-bottom: 40px;">
+            <h2 style="color: #007ba6;">⚡ 3. The Vernam Cipher &amp; One-Time Pads (20 Mins)</h2>
+            <p>The <strong>Vernam Cipher</strong> is structurally different because it cannot be broken by mathematical analysis. It is mathematically secure because it follows three strict rules:</p>
+            <ul style="padding-left: 20px; font-size: 0.95em;">
+                <li>The security key must be <strong>exactly as long</strong> as the message being sent.</li>
+                <li>The key must be generated using completely <strong>random</strong> numbers.</li>
+                <li>Each key must be used <strong>only once</strong> (a One-Time Pad) and then destroyed.</li>
+            </ul>
+
+            <p>Instead of shifting letters, computers calculate the Vernam cipher by comparing the message binary data against the key binary data using an <strong>XOR (Exclusive OR)</strong> logic rule.</p>
+
+            <div style="background: #f4fdf4; border: 1px solid #bbf7d0; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <h4 style="margin-top:0; color:#1e40af;">🧬 Live Bitwise XOR Calculation Engine</h4>
+                <p style="font-size: 0.88em; color:#444;">Click the binary switches to change the message bits. Notice how the output bit changes based on the rule: <strong>If the bits are identical, the output is 0. If the bits are different, the output is 1.</strong></p>
+
+                <table style="width:100%; border-collapse:collapse; text-align:center; font-family:monospace; font-size:1.1em; background:#fff; border-radius:6px; overflow:hidden; box-shadow:0 2px 4px rgba(0,0,0,0.02);">
+                    <tr style="background:#f1f5f9; font-size:0.8em; color:#475569;">
+                        <th style="padding:10px;">Input Source</th>
+                        <th>Bit 1</th>
+                        <th>Bit 2</th>
+                        <th>Bit 3</th>
+                        <th>Bit 4</th>
+                    </tr>
+                    <tr>
+                        <td style="font-weight:bold; font-size:0.75em; color:#666; text-transform:uppercase; padding:12px;">Plaintext Message</td>
+                        <td><button id="msg-0" onclick="toggleBit('msg-0')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">0</button></td>
+                        <td><button id="msg-1" onclick="toggleBit('msg-1')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">1</button></td>
+                        <td><button id="msg-2" onclick="toggleBit('msg-2')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">0</button></td>
+                        <td><button id="msg-3" onclick="toggleBit('msg-3')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">1</button></td>
+                    </tr>
+                    <tr style="border-bottom:2px dashed #cbd5e1;">
+                        <td style="font-weight:bold; font-size:0.75em; color:#666; text-transform:uppercase; padding:12px;">Random Key (Pad)</td>
+                        <td><button id="key-0" onclick="toggleBit('key-0')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">1</button></td>
+                        <td><button id="key-1" onclick="toggleBit('key-1')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">1</button></td>
+                        <td><button id="key-2" onclick="toggleBit('key-2')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">0</button></td>
+                        <td><button id="key-3" onclick="toggleBit('key-3')" style="padding:6px 12px; font-weight:bold; cursor:pointer; background:#e2e8f0; border:1px solid #cbd5e1; border-radius:4px;">0</button></td>
+                    </tr>
+                    <tr style="background:#ecfdf5; font-weight:bold; color:#065f46;">
+                        <td style="font-size:0.75em; text-transform:uppercase; padding:15px;">Vernam Cipher Output</td>
+                        <td id="xor-0">1</td>
+                        <td id="xor-1">0</td>
+                        <td id="xor-2">0</td>
+                        <td id="xor-3">1</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+        <div id="exam-prep" style="margin-bottom: 40px; padding: 20px; background-color: #fdfdfd; border: 1px solid #eee; border-radius: 8px;">
+            <h2 style="color: #007ba6; margin-top: 0;">🏅 4. Core Knowledge Self-Check (10 Mins)</h2>
+            <p>Review this key conceptual comparison to prepare for classroom discussions next week.</p>
+            
+            <div style="background:#fafafa; border: 1px solid #e2e8f0; padding:15px; border-radius:6px; margin-bottom:15px;">
+                <strong>Question: Why can frequency analysis crack a Substitution Cipher but fail completely against a Vernam Cipher?</strong>
+            </div>
+
+            <details style="border: 1px solid #007ba6; border-radius: 8px; background-color: white;">
+                <summary style="padding: 10px; cursor: pointer; font-weight: bold; color: #007ba6;">Click to Reveal the Architectural Answer Review</summary>
+                <div style="padding: 15px; border-top: 1px solid #eee; line-height: 1.5; font-size:0.95em;">
+                    <p style="margin-top:0;"><strong>The Breakdown:</strong></p>
+                    <ul style="margin: 0; padding-left:20px; color: #1e3a8a;">
+                        <li>In a <strong>Substitution Cipher</strong>, the letter patterns stay intact. If 'E' is scrambled to 'Q', every single 'E' turns into a 'Q'. The recurring language structures remain visible.</li>
+                        <li>In a <strong>Vernam Cipher</strong>, every character is combined with a completely random value. If you encrypt the word "AAAA", each 'A' matches up against a completely different character in the random key string. The output looks completely random, leaving zero linguistic patterns to track.</li>
+                    </ul>
+                </div>
+            </details>
+        </div>
+
+        <div id="next-steps" style="margin-top: 40px;">
+            <h2 style="color: #007ba6;">📚 5. Beyond the Lesson (5 Mins)</h2>
+            <p>Explore these curated, high-quality links to preview how digital systems apply encryption protocols across modern servers:</p>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px;">
+                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #ffffff;">
+                    <h4 style="margin-top: 0; color: #007ba6;">The Enigma Machine</h4>
+                    <p style="font-size: 0.85em; color: #666;">Discover the world of rotor-based polyalphabetic substitution machines used at Bletchley Park during World War II.</p>
+                    <a style="color: #d32f2f; font-weight: bold; text-decoration: none; font-size: 0.9em;" href="https://www.bletchleypark.org.uk" target="_blank">&rarr; Visit Bletchley Park Digital Archive</a>
+                </div>
+
+                <div style="padding: 20px; border: 1px solid #ddd; border-radius: 8px; background: #ffffff;">
+                    <h4 style="margin-top: 0; color: #007ba6;">True Random Number Generation</h4>
+                    <p style="font-size: 0.85em; color: #666;">Computers struggle to produce true randomness. Learn how Cloudflare monitors wall-mounted lava lamps to generate secure encryption keys.</p>
+                    <a style="color: #d32f2f; font-weight: bold; text-decoration: none; font-size: 0.9em;" href="https://www.cloudflare.com/learning/ssl/lava-lamp-encryption/" target="_blank">&rarr; Explore Cloudflare's Lava Lamps</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    // Substitution Cipher Logic
+    function runSubstitution() {
+        const alphabet = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const shiftKey = "QWERTYUIOPASDFGHJKLZXCVBNM";
+        
+        const input = document.getElementById("mono-input").value.toUpperCase();
+        let result = "";
+        
+        for (let i = 0; i < input.length; i++) {
+            let char = input[i];
+            let index = alphabet.indexOf(char);
+            
+            if (index !== -1) {
+                result += shiftKey[index];
+            } else {
+                result += char; // Keep spaces and punctuation unchanged
+            }
+        }
+        document.getElementById("mono-output").innerText = result || " ";
+    }
+
+    // Vernam Bitwise XOR Logic
+    function toggleBit(id) {
+        const btn = document.getElementById(id);
+        btn.innerText = btn.innerText === "0" ? "1" : "0";
+        
+        // Re-calculate all XOR outputs live
+        for (let i = 0; i < 4; i++) {
+            const msgBit = parseInt(document.getElementById(`msg-${i}`).innerText);
+            const keyBit = parseInt(document.getElementById(`key-${i}`).innerText);
+            
+            // XOR Rule: Outputs 1 only if the bits don't match
+            document.getElementById(`xor-${i}`).innerText = (msgBit !== keyBit) ? "1" : "0";
+        }
+    }
+</script>
